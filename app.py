@@ -1,20 +1,28 @@
 import streamlit as st
 import pandas as pd
-import preprocessor, helper
+import preprocessor
+import helper
 import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
 
-
+# Check if scipy is installed, if not, install it
+try:
+    import scipy
+except ImportError:
+    st.error("scipy is not installed. Please install it using 'pip install scipy'.")
 
 df = pd.read_csv('athlete_events.csv')
 region_df = pd.read_csv('noc_regions.csv')
 
-df = preprocessor.preprocess(df, region_df)
+# Preprocess the data
+if not df.empty and not region_df.empty:
+    df = preprocessor.preprocess(df, region_df)
+else:
+    st.error("Data frame is empty. Please check the input CSV files.")
 
 st.sidebar.image("https://imgs.search.brave.com/wgcDct35DolbhcQa1Wo5DggG87Qq-y3EupFgOs7MrUk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmFt/ZXJ1c2VyY29udGVu/dC5jb20vaW1hZ2Vz/L29LTzc3ZUc2OThH/a0dSYXliSnNjRVdm/SEduRS5wbmc", width=250, use_column_width=False)
-
 
 st.sidebar.title("Olympics Analysis")
 User_menu = st.sidebar.radio(
@@ -161,7 +169,7 @@ if User_menu == 'Athlete wise Analysis':
         x.append(temp_df[temp_df['Medal'] == 'Gold']['Age'].dropna())
         name.append(sport)
 
-    # probability of wiing medal in each sport by athletes
+    # probability of winning medal in each sport by athletes
     fig = ff.create_distplot(x, name, show_hist=False, show_rug=False)
     fig.update_layout(autosize=False, width=800, height=500)
     st.title("Distribution of Age wrt Sports(Gold Medalist)")
@@ -186,4 +194,3 @@ if User_menu == 'Athlete wise Analysis':
     fig = px.line(final, x='Year', y=['Male', 'Female'])
     fig.update_layout(autosize=False, width=800, height=500)
     st.plotly_chart(fig)
-
