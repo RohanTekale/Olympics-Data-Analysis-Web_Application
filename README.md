@@ -2,7 +2,11 @@
 
 ## Overview
 This project involves the analysis of Olympics data obtained from Kaggle using various tools and technologies. The analysis is conducted using Python programming language along with Pandas, NumPy, and Streamlit framework. The project is divided into four main parts: Medal Tally Analysis, Overall Analysis, Country-wise Analysis, and Athletes Analysis.
-![Olympics Data Analysis](https://imgs.search.brave.com/wgcDct35DolbhcQa1Wo5DggG87Qq-y3EupFgOs7MrUk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmFt/ZXJ1c2VyY29udGVu/dC5jb20vaW1hZ2Vz/L29LTzc3ZUc2OThH/a0dSYXliSnNjRVdm/SEduRS5wbmc)
+
+<p align="center">
+  <img src="https://imgs.search.brave.com/wgcDct35DolbhcQa1Wo5DggG87Qq-y3EupFgOs7MrUk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mcmFt/ZXJ1c2VyY29udGVu/dC5jb20vaW1hZ2Vz/L29LTzc3ZUc2OThH/a0dSYXliSnNjRVdm/SEduRS5wbmc" alt="Olympics Data Analysis" width="300"/>
+</p>
+
 
 ## DataSet Source
 The dataset used for this project is sourced from Kaggle, a platform for data science and machine learning enthusiasts. The dataset contains information about Olympic events, including details about athletes, countries, sports, and medals won.
